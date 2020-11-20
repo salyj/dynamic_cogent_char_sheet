@@ -1,0 +1,406 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+
+        <script>
+            var boxArray = [
+                [false, false, false, false, false],
+                [false, false, false, false, false],
+                [false, false, false, false, false],
+                [false, false, false, false, false],
+                [false, false, false, false, false],
+                [false, false, false, false, false],
+                [false, false, false, false, false],
+                [false, false, false, false, false],
+                [false, false, false, false, false],
+                [false, false, false, false, false],
+                [false, false, false, false, false],
+                [false, false, false, false, false],
+                [false, false, false, false, false],
+                [false, false, false, false, false],
+                [false, false, false, false, false],
+                [false, false, false, false, false],
+                [false, false, false, false],
+                [false, false, false, false],
+                [false, false, false, false],
+                [false, false],
+                [false, false],
+                [false, false]
+            ]
+
+            function colorBox(isPositive, toColor, boxSet, boxNum) {
+                if (!toColor.hasAttribute("style")) {
+                    if (isPositive) {
+                        toColor.setAttribute("style", "background-color: green;")
+                    } else {
+                        toColor.setAttribute("style", "background-color: red;");
+                    }
+
+                    boxArray[boxSet][boxNum] = true;
+                } else {
+                    toColor.removeAttribute("style");
+                    boxArray[boxSet][boxNum] = false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <form>
+                <div id="form-header">
+                    <div id="name">
+                        <label for="charName">Character:</label>
+                        <input type="text" id="charName" name="charName" />
+                    </div>
+                    <div id="player">
+                        <label for="playerName">Player:</label>
+                        <input type="text" id="playerName" name="playerName" />
+                    </div>
+                </div>
+                <div id="identity">
+                    <div id="ageDiv">
+                        <label for="charAge">Age:</label>
+                        <input type="text" id="charAge" name="charAge" maxlength="5" />
+                    </div>
+                    <div id="raceDiv">
+                        <label for="charRace">Race:</label>
+                        <input type="text" id="charRace" name="charRace" />
+                    </div>
+                    <div id="heightDiv">
+                        <label for="charHeight">Height:</label>
+                        <input type="text" id="charHeight" name="charHeight" />
+                    </div>
+                    <div id="bTDiv">
+                        <label for="charBodyType">Body Type:</label>
+                        <input type="text" id="charBodyType" name="charBodyType" />
+                    </div>
+                    <div id="dispDiv">
+                        <label for="charDisp">Character Disposition:</label>
+                        <input type="text" id="charDisp" name="charDisp" />
+                    </div>
+                    <div id="disDiv">
+                        <label for="disChar">Disabling Characteristics:</label>
+                        <input type="text" id="disChar" name="disChar" />
+                    </div>
+                </div>
+                <div id="leftSide">
+                    <div id="attributes">
+                        <h1 style="text-align: center; width: 100%;">ATTRIBUTES</h1>
+                        <div id="strength">
+                            <div class="atrLabel">
+                                <h1>STR:</h1>
+                                <h4>(Strength)</h4>
+                            </div>
+                            <div class="atrBoxes">
+                                <div class="atrNegative" onClick="colorBox(false, this, 0, 0);"></Div>
+                                <div class="atrPositive" onClick="colorBox(true, this, 0, 1);"></div>
+                                <div class="atrPositive" onClick="colorBox(true, this, 0, 2);"></div>
+                                <div class="atrPositive" onClick="colorBox(true, this, 0, 3);"></div>
+                                <div class="atrPositive" onClick="colorBox(true, this, 0, 4);"></div>
+                            </div>
+                            <div class="atrDescription">
+                                <p class="descriptHeader">For every point in <b>STRENGTH</b></p>
+                                <p><b>severity in injury</b> can be <b>reduced</b> once in every conflict resolution and the player recieves an additional die for all attack and defense rolls</p>
+                            </div>
+                        </div>
+                        <div id="reflex">
+                            <div class= "atrLabel">
+                                <h1>REF:</h1>
+                                <h4>(Reflex)</h4>
+                            </div>
+                            <div class="atrBoxes">
+                                <div class="atrNegative" onClick="colorBox(false, this, 1, 0);"></Div>
+                                <div class="atrPositive" onClick="colorBox(true, this, 1, 1);"></div>
+                                <div class="atrPositive" onClick="colorBox(true, this, 1, 2);"></div>
+                                <div class="atrPositive" onClick="colorBox(true, this, 1, 3);"></div>
+                                <div class="atrPositive" onClick="colorBox(true, this, 1, 4);"></div>
+                            </div>
+                            <div class="atrDescription">
+                                <p class="descriptHeader">For every point in <b>REFLEX</b></p>
+                                <p><b>Turn Priority is Higher</b> at the beginning of combat encounters and the player recieves an additional die for all attack and defense rolls</p>
+                            </div>
+                        </div>
+                        <div id="intelligence">
+                            <div class="atrLabel">
+                                <h1>INT:</h1>
+                                <h4>(Intelligence)</h4>
+                            </div>
+                            <div class="atrBoxes">
+                                <div class="atrNegative" onClick="colorBox(false, this, 2, 0);"></Div>
+                                <div class="atrPositive" onClick="colorBox(true, this, 2, 1);"></div>
+                                <div class="atrPositive" onClick="colorBox(true, this, 2, 2);"></div>
+                                <div class="atrPositive" onClick="colorBox(true, this, 2, 3);"></div>
+                                <div class="atrPositive" onClick="colorBox(true, this, 2, 4);"></div>
+                            </div>
+                            <div class="atrDescription">
+                                <p class="descriptHeader">For every point in <b>INTELLIGENCE</b></p>
+                                <p>recieve <b>3 additional skill points</b> to spend in character creation and the player recieves an additional die for all attack and defense rolls</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="skillContainer">
+                        <h1 style="text-align: center; width: 100%;">SKILLS</h1>
+                        <div id="skills">
+                            <div id="coreSkills">
+                                <h3>Core (+STR +REF +INT)</h3>
+                                <div id="perception" class="skill">
+                                    <h2>Perception</h2>
+                                    <div class="skillBoxes">
+                                        <div class="skillNeg" onClick="colorBox(false, this, 3, 0);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 3, 1);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 3, 2);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 3, 3);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 3, 4);"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="strSkills">
+                                <h3>Strength Based (+STR)</h3>
+                                <div id="athletics" class="skill">
+                                    <h2>Athletics</h2>
+                                    <div class="skillBoxes">
+                                        <div class="skillNeg" onClick="colorBox(false, this, 4, 0);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 4, 1);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 4, 2);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 4, 3);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 4, 4);"></div>
+                                    </div>
+                                </div>
+                                <div id="grapple" class="skill">
+                                    <h2>Grapple</h2>
+                                    <div class="skillBoxes">
+                                        <div class="skillNeg" onClick="colorBox(false, this, 5, 0);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 5, 1);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 5, 2);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 5, 3);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 5, 4);"></div>
+                                    </div>
+                                </div>
+                                <div id="swim" class="skill">
+                                    <h2>Swim</h2>
+                                    <div class="skillBoxes">
+                                        <div class="skillNeg" onClick="colorBox(false, this, 6, 0);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 6, 1);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 6, 2);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 6, 3);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 6, 4);"></div>
+                                    </div>
+                                </div>
+                                <div id="aimThrow" class="skill">
+                                    <h2>Aim/Throw</h2>
+                                    <div class="skillBoxes">
+                                        <div class="skillNeg" onClick="colorBox(false, this, 7, 0);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 7, 1);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 7, 2);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 7, 3);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 7, 4);"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="refSkills">
+                                <h3>Reflex Based (+REF)</h3>
+                                <div id="acrobatics" class="skill">
+                                    <h2>Acrobatics</h2>
+                                    <div class="skillBoxes">
+                                        <div class="skillNeg" onClick="colorBox(false, this, 8, 0);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 8, 1);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 8, 2);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 8, 3);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 8, 4);"></div>
+                                    </div>
+                                </div>
+                                <div id="ridePilot" class="skill">
+                                    <h2>Ride/Pilot</h2>
+                                    <div class="skillBoxes">
+                                        <div class="skillNeg" onClick="colorBox(false, this, 9, 0);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 9, 1);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 9, 2);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 9, 3);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 9, 4);"></div>
+                                    </div>
+                                </div>
+                                <div id="slightOfHand" class="skill">
+                                    <h2>Sleight of Hand</h2>
+                                    <div class="skillBoxes">
+                                        <div class="skillNeg" onClick="colorBox(false, this, 10, 0);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 10, 1);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 10, 2);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 10, 3);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 10, 4);"></div>
+                                    </div>
+                                </div>
+                                <div id="stealth" class="skill">
+                                    <h2>Stealth</h2>
+                                    <div class="skillBoxes">
+                                        <div class="skillNeg" onClick="colorBox(false, this, 11, 0);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 11, 1);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 11, 2);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 11, 3);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 11, 4);"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="intSkills">
+                                <h3>Intelligence Based (+INT)</h3>
+                                <div id="deception" class="skill">
+                                    <h2>Deception</h2>
+                                    <div class="skillBoxes">
+                                        <div class="skillNeg" onClick="colorBox(false, this, 12, 0);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 12, 1);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 12, 2);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 12, 3);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 12, 4);"></div>
+                                    </div>
+                                </div>
+                                <div id="persuasion" class="skill">
+                                    <h2>Persuasion</h2>
+                                    <div class="skillBoxes">
+                                        <div class="skillNeg" onClick="colorBox(false, this, 13, 0);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 13, 1);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 13, 2);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 13, 3);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 13, 4);"></div>
+                                    </div>
+                                </div>
+                                <div id="infiltration" class="skill">
+                                    <h2>Infiltration</h2>
+                                    <div class="skillBoxes">
+                                        <div class="skillNeg" onClick="colorBox(false, this, 14, 0);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 14, 1);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 14, 2);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 14, 3);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 14, 4);"></div>
+                                    </div>
+                                </div>
+                                <div id="survival" class="skill">
+                                    <h2>Survival</h2>
+                                    <div class="skillBoxes">
+                                        <div class="skillNeg" onClick="colorBox(false, this, 15, 0);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 15, 1);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 15, 2);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 15, 3);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 15, 4);"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="skillCont">
+                            <div id="vocations">
+                                <h2>Vocations (Assist Skills)</h2>
+                                <div class="vocationDiv">
+                                    <input type="text" class="vocation" />
+                                    <div class="skillboxes">
+                                        <div class="skillPos" onClick="colorBox(true, this, 16, 0);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 16, 1);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 16, 2);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 16, 3);"></div>
+                                    </div>
+                                </div>
+                                <div class="vocationDiv">
+                                    <input type="text" class="vocation" />
+                                    <div class="skillboxes">
+                                        <div class="skillPos" onClick="colorBox(true, this, 17, 0);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 17, 1);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 17, 2);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 17, 3);"></div>
+                                    </div>
+                                </div>
+                                <div class="vocationDiv">
+                                    <input type="text" class="vocation" />
+                                    <div class="skillboxes">
+                                        <div class="skillPos" onClick="colorBox(true, this, 18, 0);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 18, 1);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 18, 2);"></div>
+                                        <div class="skillPos" onClick="colorBox(true, this, 18, 3);"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="proficiencies">
+                                <h2>Proficiencies (Combat Applicable)</h2>
+                                <div class="profDiv">
+                                    <input type="text" class="proficiency" name="proficiency1"/>
+                                    <div class="skillPos" onClick="colorBox(true, this, 19, 0);"></div>
+                                    <div class="skillPos" onClick="colorBox(true, this, 19, 1);"></div>
+                                </div>
+                                <div class="profDiv">
+                                    <input type="text" class="proficiency" name="proficiency2"/>
+                                    <div class="skillPos" onClick="colorBox(true, this, 20, 0);"></div>
+                                    <div class="skillPos" onClick="colorBox(true, this, 20, 1);"></div>
+                                </div>
+                                <div class="profDiv">
+                                    <input type="text" class="proficiency" name="proficiency3"/>
+                                    <div class="skillPos" onClick="colorBox(true, this, 21, 0);"></div>
+                                    <div class="skillPos" onClick="colorBox(true, this, 21, 1);"></div>
+                                </div>
+                            </div>
+                            <div id="destinyPoints">
+                                <div class="destinyBox" onClick="colorBox(true, this);"></div>
+                                <div class="destinyBox" onClick="colorBox(true, this);"></div>
+                                <div class="destinyBox" onClick="colorBox(true, this);"></div>
+                                <div class="destinyBox" onClick="colorBox(true, this);"></div>
+                                <div class="destinyBox" onClick="colorBox(true, this);"></div>
+                                <div class="destinyBox" onClick="colorBox(true, this);"></div>
+                                <div class="destinyBox" onClick="colorBox(true, this);"></div>
+                                <div class="destinyBox" onClick="colorBox(true, this);"></div>
+                            </div>
+                            <div id="commercePoints">
+                                <div class="commerceBox" onClick="colorBox(true, this);"></div>
+                                <div class="commerceBox" onClick="colorBox(true, this);"></div>
+                                <div class="commerceBox" onClick="colorBox(true, this);"></div>
+                                <div class="commerceBox" onClick="colorBox(true, this);"></div>
+                                <div class="commerceBox" onClick="colorBox(true, this);"></div>
+                                <div class="commerceBox" onClick="colorBox(true, this);"></div>
+                                <div class="commerceBox" onClick="colorBox(true, this);"></div>
+                                <div class="commerceBox" onClick="colorBox(true, this);"></div>
+                            </div>
+                            <div id="health">
+                                <div id="injury">
+                                    <h2>Injury:</h2>
+                                    <input type="text" class="injury" name="injury1"/>
+                                    <input type="text" class="injury" name="injury2"/>
+                                    <input type="text" class="injury" name="injury3"/>
+                                    <input type="text" class="injury" name="injury4"/>
+                                    <input type="text" class="injury" name="injury5"/>
+                                    <input type="text" class="injury" name="injury6"/>
+                                </div>
+                                <div id="penalty">
+                                    <h2>Penalty:</h2>
+                                    <input type="text" class="penalty" name="penalty1"/>
+                                    <input type="text" class="penalty" name="penalty2"/>
+                                    <input type="text" class="penalty" name="penalty3"/>
+                                    <input type="text" class="penalty" name="penalty4"/>
+                                    <input type="text" class="penalty" name="penalty5"/>
+                                    <input type="text" class="penalty" name="penalty6"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="personality">
+                    <div id="history">
+                        <h1>History</h1>
+                        <textarea id="historyText" name="history" rows="18" cols="50"></textarea>
+                    </div>
+                    <div id="beliefsMorality">
+                        <h1>Beliefs/Morality</h1>
+                        <textarea id="beliefsMoralityText" name="beliefsMorality" rows="18" cols="50"></textarea>
+                    </div>
+                    <div id="goalsAspirations">
+                        <h1>Goals/Aspirations</h1>
+                        <textarea id="goalsAspirationsText" name="goalsAspirations" rows="18" cols="50"></textarea>
+                    </div>
+                </div>
+                <div id="additional">
+                    <div id="inventory">
+                        <h1>Inventory/Equipment</h1>
+                        <textarea id="inventoryText" name="inventory" rows="28" cols="85"></textarea>
+                    </div>
+                    <div id="notes">
+                        <h1>Notes</h1>
+                        <textarea id="notesText" name="notes" rows="28" cols="85"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
